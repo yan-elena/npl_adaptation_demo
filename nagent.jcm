@@ -1,0 +1,9 @@
+// NPL running inside Bob
+
+mas nag {
+
+    agent bob {
+        ag-class: adaptation.ANormativeAg("src/npl/ex1.npl")
+    }
+
+}

@@ -1,0 +1,13 @@
+// example with sanctions
+
+scope main {
+
+    // alice has 3 seconds to achieve b(0), or else, sanction!
+    norm n1: vl(X) & X > 5
+       -> obligation(alice,n1, b(0), `3 seconds`)
+          if unfulfilled: sr1(alice,X).
+
+    sanction-rule sr1(A,V) : not emergency(A) -> sanction(A,fine(V)).
+
+    // sanction-rule sr2 -> sanction(bob,remove_from_systems).
+}
