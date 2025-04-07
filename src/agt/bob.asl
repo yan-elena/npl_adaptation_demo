@@ -4,7 +4,7 @@
     <-  +vl(20) // by adding this belief, the NPL will trigger an obligation
         .
 
-+detect
++!detect
     <-  .print("Detecting ...");
         .
 
