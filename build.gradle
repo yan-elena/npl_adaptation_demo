@@ -14,9 +14,16 @@ apply from: '.jcm-deps.gradle' // this file contains dependencies declared in th
 version '1.0'
 group   'org.jacamo'
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(23)
+    }
+}
+
 repositories {
     maven { url "https://raw.githubusercontent.com/jacamo-lang/mvn-repo/master" }
     maven { url "https://repo.gradle.org/gradle/libs-releases" }
+    maven { url "https://raw.githubusercontent.com/yan-elena/npl-mvn-repo/main" }
 
     //maven { url "http://jacamo.sourceforge.net/maven2" }
     //maven { url "https://jade.tilab.com/maven/" }
@@ -24,13 +31,14 @@ repositories {
     flatDir { dirs 'lib' }
 
     mavenCentral()
-    maven { url "https://jitpack.io" }
+    maven {url = uri("https://jitpack.io")}
 
 }
 
 dependencies {
     implementation('org.jacamo:jacamo:1.3-SNAPSHOT')
-    implementation(rootProject)
+    implementation('org.jacamo:npl:0.8')
+//    implementation(rootProject)
 }
 
 sourceSets {
